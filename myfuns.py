@@ -16,12 +16,10 @@ movie_data = [line.split("::") for line in movie_lines if line]
 movies = pd.DataFrame(movie_data, columns=['movie_id', 'title', 'genres'])
 movies['movie_id'] = movies['movie_id'].astype(int)
 
-data_dir = "https://github.com/ranyou/MovieRS/tree/main/data"
-
 # Load similarity values
-S = pd.read_csv(f"{data_dir}/Smat.csv", index_col=0)
+S = pd.read_csv("https://raw.githubusercontent.com/ranyou/MovieRS/refs/heads/main/data/Smat.csv", index_col=0)
 # Load popularity values
-P = pd.read_csv(f"{data_dir}/popularity.csv")
+P = pd.read_csv("https://raw.githubusercontent.com/ranyou/MovieRS/refs/heads/main/data/popularity.csv")
 
 def get_displayed_movies():
     return movies.head(100)
